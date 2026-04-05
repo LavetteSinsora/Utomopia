@@ -28,7 +28,7 @@ export default function Navbar({ userId }: { userId: string }) {
   return (
     <nav className="bg-white border-b border-[#E2DDD8]">
       <div className="max-w-2xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/feed" className="font-bold text-lg text-[#4A6FA5] tracking-tight">
+        <Link href="/feed" className="font-bold text-lg text-[#7BAEC7] tracking-tight">
           Utomopia
         </Link>
         <div className="flex items-center gap-1">
@@ -39,7 +39,7 @@ export default function Navbar({ userId }: { userId: string }) {
               className={cn(
                 'px-3 py-1.5 text-sm rounded-xl transition-colors font-semibold',
                 pathname.startsWith(link.href)
-                  ? 'bg-[#4A6FA5] text-white'
+                  ? 'bg-[#7BAEC7] text-white'
                   : 'text-[#6B6B6B] hover:text-[#2D2D2D] hover:bg-[#EDE9E3]'
               )}
             >

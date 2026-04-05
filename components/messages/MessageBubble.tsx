@@ -41,7 +41,7 @@ export default function MessageBubble({ message, isOwn }: MessageBubbleProps) {
         <div className={cn(
           'rounded-2xl px-3 py-2 text-sm leading-relaxed',
           isOwn
-            ? 'bg-[#4A6FA5] text-white rounded-tr-sm'
+            ? 'bg-[#7BAEC7] text-white rounded-tr-sm'
             : 'bg-[#F0EDE9] text-[#2D2D2D] rounded-tl-sm'
         )}>
           {message.content}

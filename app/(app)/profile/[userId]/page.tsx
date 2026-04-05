@@ -65,7 +65,7 @@ export default function ProfilePage() {
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-bold text-[#2D2D2D]">{profile.display_name}</h1>
             {profile.agent_active && (
-              <Badge variant="secondary" className="text-xs bg-[#4A6FA5]/10 text-[#4A6FA5] border-0 font-semibold">twin active</Badge>
+              <Badge variant="secondary" className="text-xs bg-[#7BAEC7]/10 text-[#7BAEC7] border-0 font-semibold">twin active</Badge>
             )}
             {isOwnProfile && (
               <Badge variant="outline" className="text-xs border-[#E2DDD8] text-[#6B6B6B]">you</Badge>

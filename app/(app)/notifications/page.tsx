@@ -14,7 +14,7 @@ function HandoffNotification({ notification, onMarkSeen }: {
   const payload = notification.payload as { summary?: string } | null
 
   return (
-    <div className={`rounded-2xl p-4 bg-white border ${!notification.seen ? 'border-[#4A6FA5]' : 'border-[#E2DDD8]'}`}>
+    <div className={`rounded-2xl p-4 bg-white border ${!notification.seen ? 'border-[#7BAEC7]' : 'border-[#E2DDD8]'}`}>
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <p className="text-sm font-bold text-[#2D2D2D]">Your twin found someone worth meeting</p>
@@ -58,14 +58,14 @@ function SimpleNotification({ notification, onMarkSeen }: {
 
   return (
     <div
-      className={`rounded-2xl p-4 bg-white cursor-pointer border ${!notification.seen ? 'border-[#4A6FA5]/50' : 'border-[#E2DDD8]'}`}
+      className={`rounded-2xl p-4 bg-white cursor-pointer border ${!notification.seen ? 'border-[#7BAEC7]/50' : 'border-[#E2DDD8]'}`}
       onClick={() => onMarkSeen(notification.id)}
     >
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-[#2D2D2D]">{labels[notification.type] ?? notification.type}</p>
           {notification.ref_id && notification.type === 'new_dm' && (
-            <Link href={`/messages/${notification.ref_id}`} className="text-xs text-[#4A6FA5] underline">
+            <Link href={`/messages/${notification.ref_id}`} className="text-xs text-[#7BAEC7] underline">
               Go to message
             </Link>
           )}

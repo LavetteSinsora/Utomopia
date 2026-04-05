@@ -76,13 +76,13 @@ export default function PostCard({ post, onLike }: PostCardProps) {
             <div className="flex items-center gap-4 mt-3">
               <button
                 onClick={() => onLike(post.id, !!post.user_has_liked)}
-                className={`text-sm flex items-center gap-1 transition-colors font-semibold ${post.user_has_liked ? 'text-[#4A6FA5]' : 'text-[#8A8A8A] hover:text-[#4A6FA5]'}`}
+                className={`text-sm flex items-center gap-1 transition-colors font-semibold ${post.user_has_liked ? 'text-[#7BAEC7]' : 'text-[#8A8A8A] hover:text-[#7BAEC7]'}`}
               >
                 ♡ {post.like_count ?? 0}
               </button>
               <button
                 onClick={handleToggleComments}
-                className="text-sm text-[#8A8A8A] hover:text-[#4A6FA5] transition-colors font-semibold"
+                className="text-sm text-[#8A8A8A] hover:text-[#7BAEC7] transition-colors font-semibold"
               >
                 💬 {post.comment_count ?? 0}
               </button>
@@ -95,7 +95,7 @@ export default function PostCard({ post, onLike }: PostCardProps) {
                   <div key={c.id} className="flex gap-2 text-sm">
                     <span className="font-bold text-[#2D2D2D] shrink-0">
                       {c.author?.display_name}
-                      {c.is_agent_generated && <span className="ml-1 text-xs text-[#4A6FA5] font-semibold">[AI]</span>}:
+                      {c.is_agent_generated && <span className="ml-1 text-xs text-[#7BAEC7] font-semibold">[AI]</span>}:
                     </span>
                     <span className="text-[#5A5A5A]">{c.content}</span>
                   </div>

@@ -37,7 +37,7 @@ export default function SignupPage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-[#4A6FA5]">Utomopia</CardTitle>
+        <CardTitle className="text-2xl font-bold text-[#7BAEC7]">Utomopia</CardTitle>
         <CardDescription className="text-[#8A8A8A]">Create your account</CardDescription>
       </CardHeader>
       <CardContent>
@@ -52,7 +52,7 @@ export default function SignupPage() {
         </form>
         <p className="mt-4 text-sm text-center text-[#8A8A8A]">
           Have an account?{' '}
-          <Link href="/login" className="text-[#4A6FA5] font-semibold underline">Sign in</Link>
+          <Link href="/login" className="text-[#7BAEC7] font-semibold underline">Sign in</Link>
         </p>
       </CardContent>
     </Card>

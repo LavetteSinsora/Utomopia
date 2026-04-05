@@ -46,7 +46,7 @@ export default function MessagesPage() {
               <div className={cn(
                 'flex items-center gap-3 p-3 rounded-2xl transition-colors border',
                 isHandoffPending
-                  ? 'bg-[#EEF3FA] border-[#4A6FA5]/30 hover:bg-[#E5EDF7]'
+                  ? 'bg-[#EEF3FA] border-[#7BAEC7]/30 hover:bg-[#E5EDF7]'
                   : 'bg-white border-[#E2DDD8] hover:bg-[#FAF8F5]'
               )}>
                 <Avatar className="h-9 w-9 shrink-0">
@@ -56,7 +56,7 @@ export default function MessagesPage() {
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-bold text-[#2D2D2D]">{other?.display_name ?? 'Unknown'}</span>
                     {isHandoffPending && (
-                      <Badge className="text-xs bg-[#4A6FA5]/10 text-[#4A6FA5] border-0 font-semibold">
+                      <Badge className="text-xs bg-[#7BAEC7]/10 text-[#7BAEC7] border-0 font-semibold">
                         Handoff ready
                       </Badge>
                     )}
