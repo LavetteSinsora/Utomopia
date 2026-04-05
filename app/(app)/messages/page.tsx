@@ -26,15 +26,15 @@ export default function MessagesPage() {
     load()
   }, [])
 
-  if (loading) return <p className="text-sm text-gray-400 text-center py-8">Loading...</p>
+  if (loading) return <p className="text-sm text-[#8A8A8A] text-center py-8">Loading...</p>
 
   return (
     <div>
-      <h1 className="text-lg font-semibold mb-4">Messages</h1>
+      <h1 className="text-lg font-bold text-[#2D2D2D] mb-4">Messages</h1>
       {conversations.length === 0 && (
-        <p className="text-sm text-gray-400 text-center py-8">No conversations yet. Your twin will find people!</p>
+        <p className="text-sm text-[#8A8A8A] text-center py-8">No conversations yet. Your twin will find people!</p>
       )}
-      <div className="space-y-1">
+      <div className="space-y-2">
         {conversations.map(convo => {
           const other = currentUserId ? getOtherUser(convo, currentUserId) : null
           const initials = other?.display_name?.slice(0, 2).toUpperCase() ?? '??'
@@ -44,33 +44,33 @@ export default function MessagesPage() {
           return (
             <Link key={convo.id} href={`/messages/${convo.id}`}>
               <div className={cn(
-                'flex items-center gap-3 p-3 rounded-lg transition-colors border',
+                'flex items-center gap-3 p-3 rounded-2xl transition-colors border',
                 isHandoffPending
-                  ? 'bg-yellow-50 border-yellow-200 hover:bg-yellow-100'
-                  : 'bg-white border-gray-100 hover:bg-gray-50'
+                  ? 'bg-[#EEF3FA] border-[#4A6FA5]/30 hover:bg-[#E5EDF7]'
+                  : 'bg-white border-[#E2DDD8] hover:bg-[#FAF8F5]'
               )}>
                 <Avatar className="h-9 w-9 shrink-0">
                   <AvatarFallback className="text-xs">{initials}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">{other?.display_name ?? 'Unknown'}</span>
+                    <span className="text-sm font-bold text-[#2D2D2D]">{other?.display_name ?? 'Unknown'}</span>
                     {isHandoffPending && (
-                      <Badge className="text-xs bg-yellow-100 text-yellow-800 border-yellow-200">
+                      <Badge className="text-xs bg-[#4A6FA5]/10 text-[#4A6FA5] border-0 font-semibold">
                         Handoff ready
                       </Badge>
                     )}
                     {isHuman && (
-                      <Badge variant="outline" className="text-xs">Active</Badge>
+                      <Badge variant="outline" className="text-xs border-[#E2DDD8] text-[#6B6B6B]">Active</Badge>
                     )}
                   </div>
-                  <p className="text-xs text-gray-400 truncate">
+                  <p className="text-xs text-[#8A8A8A] truncate">
                     {convo.status === 'agent' && 'Twins are talking...'}
                     {convo.status === 'handoff_pending' && 'Your twin recommends meeting'}
                     {convo.status === 'human' && 'You are in this conversation'}
                   </p>
                 </div>
-                <span className="text-xs text-gray-300 shrink-0">{formatTime(convo.created_at)}</span>
+                <span className="text-xs text-[#B0ABA5] shrink-0">{formatTime(convo.created_at)}</span>
               </div>
             </Link>
           )

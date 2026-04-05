@@ -32,21 +32,21 @@ export default function LoginPage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl">Utomopia</CardTitle>
-        <CardDescription>Sign in to your account</CardDescription>
+        <CardTitle className="text-2xl font-bold text-[#4A6FA5]">Utomopia</CardTitle>
+        <CardDescription className="text-[#8A8A8A]">Sign in to your account</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
           <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
-          {error && <p className="text-sm text-red-500">{error}</p>}
+          {error && <p className="text-sm text-[#E05252]">{error}</p>}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? 'Signing in...' : 'Sign in'}
           </Button>
         </form>
-        <p className="mt-4 text-sm text-center text-gray-500">
+        <p className="mt-4 text-sm text-center text-[#8A8A8A]">
           No account?{' '}
-          <Link href="/signup" className="text-black underline">Sign up</Link>
+          <Link href="/signup" className="text-[#4A6FA5] font-semibold underline">Sign up</Link>
         </p>
       </CardContent>
     </Card>

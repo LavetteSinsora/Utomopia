@@ -26,9 +26,9 @@ export default function Navbar({ userId }: { userId: string }) {
   ]
 
   return (
-    <nav className="bg-white border-b border-gray-200">
+    <nav className="bg-white border-b border-[#E2DDD8]">
       <div className="max-w-2xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/feed" className="font-semibold text-lg tracking-tight">
+        <Link href="/feed" className="font-bold text-lg text-[#4A6FA5] tracking-tight">
           Utomopia
         </Link>
         <div className="flex items-center gap-1">
@@ -37,16 +37,16 @@ export default function Navbar({ userId }: { userId: string }) {
               key={link.href}
               href={link.href}
               className={cn(
-                'px-3 py-1.5 text-sm rounded-md transition-colors',
+                'px-3 py-1.5 text-sm rounded-xl transition-colors font-semibold',
                 pathname.startsWith(link.href)
-                  ? 'bg-gray-100 font-medium'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'bg-[#4A6FA5] text-white'
+                  : 'text-[#6B6B6B] hover:text-[#2D2D2D] hover:bg-[#EDE9E3]'
               )}
             >
               {link.label}
             </Link>
           ))}
-          <Button variant="ghost" size="sm" onClick={handleSignOut} className="ml-2 text-gray-500">
+          <Button variant="ghost" size="sm" onClick={handleSignOut} className="ml-2 text-[#8A8A8A] hover:text-[#2D2D2D] hover:bg-[#EDE9E3] rounded-xl">
             Sign out
           </Button>
         </div>

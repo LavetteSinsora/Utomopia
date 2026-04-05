@@ -1,20 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF8F5;
+  --foreground: #2D2D2D;
+  --card: #FFFFFF;
+  --card-foreground: #2D2D2D;
+  --primary: #4A6FA5;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDE9E3;
+  --secondary-foreground: #2D2D2D;
+  --muted: #EDE9E3;
+  --muted-foreground: #8A8A8A;
+  --accent: #EDE9E3;
+  --accent-foreground: #2D2D2D;
+  --border: #E2DDD8;
+  --input: #E2DDD8;
+  --ring: #4A6FA5;
+  --destructive: #E05252;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --font-sans: var(--font-nunito);
   --font-mono: var(--font-geist-mono);
 }
-
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
