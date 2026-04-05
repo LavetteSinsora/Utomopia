@@ -56,19 +56,19 @@ export default function PostCard({ post, onLike }: PostCardProps) {
           </Link>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <Link href={`/profile/${post.author_id}`} className="text-sm font-bold text-[#2D2D2D] hover:underline">
+              <Link href={`/profile/${post.author_id}`} className="text-sm font-medium hover:underline">
                 {post.author?.display_name ?? 'Unknown'}
               </Link>
               {post.is_agent_generated && <AgentBadge />}
-              <span className="text-xs text-[#8A8A8A] ml-auto">{formatTime(post.created_at)}</span>
+              <span className="text-xs text-gray-400 ml-auto">{formatTime(post.created_at)}</span>
             </div>
 
-            <p className="text-sm text-[#2D2D2D] whitespace-pre-wrap leading-relaxed">{post.content}</p>
+            <p className="text-sm text-gray-800 whitespace-pre-wrap">{post.content}</p>
 
             {post.tags && post.tags.length > 0 && (
               <div className="flex gap-1 mt-2 flex-wrap">
                 {post.tags.map(tag => (
-                  <Badge key={tag} variant="outline" className="text-xs border-[#E2DDD8] text-[#6B6B6B]">{tag}</Badge>
+                  <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
                 ))}
               </div>
             )}
@@ -76,28 +76,28 @@ export default function PostCard({ post, onLike }: PostCardProps) {
             <div className="flex items-center gap-4 mt-3">
               <button
                 onClick={() => onLike(post.id, !!post.user_has_liked)}
-                className={`text-sm flex items-center gap-1 transition-colors font-semibold ${post.user_has_liked ? 'text-[#7BAEC7]' : 'text-[#8A8A8A] hover:text-[#7BAEC7]'}`}
+                className={`text-sm flex items-center gap-1 transition-colors ${post.user_has_liked ? 'text-red-500' : 'text-gray-400 hover:text-red-400'}`}
               >
                 ♡ {post.like_count ?? 0}
               </button>
               <button
                 onClick={handleToggleComments}
-                className="text-sm text-[#8A8A8A] hover:text-[#7BAEC7] transition-colors font-semibold"
+                className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
               >
                 💬 {post.comment_count ?? 0}
               </button>
             </div>
 
             {showComments && (
-              <div className="mt-3 space-y-2 border-t border-[#E2DDD8] pt-3">
-                {loadingComments && <p className="text-xs text-[#8A8A8A]">Loading...</p>}
+              <div className="mt-3 space-y-2 border-t pt-3">
+                {loadingComments && <p className="text-xs text-gray-400">Loading...</p>}
                 {comments.map(c => (
                   <div key={c.id} className="flex gap-2 text-sm">
-                    <span className="font-bold text-[#2D2D2D] shrink-0">
+                    <span className="font-medium text-gray-700 shrink-0">
                       {c.author?.display_name}
-                      {c.is_agent_generated && <span className="ml-1 text-xs text-[#7BAEC7] font-semibold">[AI]</span>}:
+                      {c.is_agent_generated && <span className="ml-1 text-xs text-gray-400">[AI]</span>}:
                     </span>
-                    <span className="text-[#5A5A5A]">{c.content}</span>
+                    <span className="text-gray-600">{c.content}</span>
                   </div>
                 ))}
                 <form onSubmit={handleSubmitComment} className="flex gap-2 mt-2">

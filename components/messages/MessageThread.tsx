@@ -22,8 +22,8 @@ export default function MessageThread({ conversationId, currentUserId }: Message
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  if (loading) return <p className="text-sm text-[#8A8A8A] text-center py-8">Loading...</p>
-  if (!conversation) return <p className="text-sm text-[#8A8A8A] text-center py-8">Conversation not found.</p>
+  if (loading) return <p className="text-sm text-gray-400 text-center py-8">Loading...</p>
+  if (!conversation) return <p className="text-sm text-gray-400 text-center py-8">Conversation not found.</p>
 
   const otherUser = getOtherUser(conversation, currentUserId)
   const canSend = conversation.status === 'human'
@@ -40,9 +40,9 @@ export default function MessageThread({ conversationId, currentUserId }: Message
 
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)]">
-      <div className="border-b border-[#E2DDD8] pb-3 mb-3">
-        <h2 className="font-bold text-[#2D2D2D]">{otherUser?.display_name ?? 'Unknown'}</h2>
-        <p className="text-xs text-[#8A8A8A]">
+      <div className="border-b pb-3 mb-3">
+        <h2 className="font-medium">{otherUser?.display_name ?? 'Unknown'}</h2>
+        <p className="text-xs text-gray-400">
           {conversation.status === 'agent' && 'Twins are talking'}
           {conversation.status === 'handoff_pending' && 'Ready for handoff'}
           {conversation.status === 'human' && 'You are in this conversation'}
@@ -75,7 +75,7 @@ export default function MessageThread({ conversationId, currentUserId }: Message
       </div>
 
       {canSend ? (
-        <form onSubmit={handleSubmit} className="flex gap-2 pt-3 border-t border-[#E2DDD8]">
+        <form onSubmit={handleSubmit} className="flex gap-2 pt-3 border-t">
           <Input
             value={input}
             onChange={e => setInput(e.target.value)}
@@ -86,7 +86,7 @@ export default function MessageThread({ conversationId, currentUserId }: Message
           <Button type="submit" disabled={sending || !input.trim()}>Send</Button>
         </form>
       ) : (
-        <p className="text-xs text-center text-[#8A8A8A] pt-3 border-t border-[#E2DDD8]">
+        <p className="text-xs text-center text-gray-400 pt-3 border-t">
           {conversation.status === 'agent'
             ? 'Your twin is managing this conversation.'
             : 'Waiting for handoff acceptance.'}

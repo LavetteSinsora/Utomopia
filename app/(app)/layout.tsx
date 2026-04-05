@@ -9,7 +9,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   if (!user) redirect('/login')
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5]">
+    <div className="min-h-screen bg-gray-50">
       <Navbar userId={user.id} />
       <main className="max-w-2xl mx-auto px-4 py-6">
         {children}

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
-const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Utomopia',
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={nunito.variable} style={{ fontFamily: 'var(--font-nunito), sans-serif' }}>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

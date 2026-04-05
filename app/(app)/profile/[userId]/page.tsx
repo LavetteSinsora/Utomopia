@@ -49,8 +49,8 @@ export default function ProfilePage() {
     load()
   }, [userId])
 
-  if (loading) return <p className="text-sm text-[#8A8A8A] text-center py-8">Loading...</p>
-  if (!profile) return <p className="text-sm text-[#8A8A8A] text-center py-8">User not found.</p>
+  if (loading) return <p className="text-sm text-gray-400 text-center py-8">Loading...</p>
+  if (!profile) return <p className="text-sm text-gray-400 text-center py-8">User not found.</p>
 
   const initials = profile.display_name.slice(0, 2).toUpperCase()
   const isOwnProfile = currentUserId === userId
@@ -63,17 +63,17 @@ export default function ProfilePage() {
         </Avatar>
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold text-[#2D2D2D]">{profile.display_name}</h1>
+            <h1 className="text-xl font-semibold">{profile.display_name}</h1>
             {profile.agent_active && (
-              <Badge variant="secondary" className="text-xs bg-[#7BAEC7]/10 text-[#7BAEC7] border-0 font-semibold">twin active</Badge>
+              <Badge variant="secondary" className="text-xs">twin active</Badge>
             )}
             {isOwnProfile && (
-              <Badge variant="outline" className="text-xs border-[#E2DDD8] text-[#6B6B6B]">you</Badge>
+              <Badge variant="outline" className="text-xs">you</Badge>
             )}
           </div>
-          {profile.bio && <p className="text-sm text-[#8A8A8A] mt-0.5">{profile.bio}</p>}
+          {profile.bio && <p className="text-sm text-gray-500 mt-0.5">{profile.bio}</p>}
           {isOwnProfile && (
-            <p className="text-xs text-[#B0ABA5] mt-0.5 font-mono">ID: {userId}</p>
+            <p className="text-xs text-gray-400 mt-0.5 font-mono">ID: {userId}</p>
           )}
         </div>
         {!isOwnProfile && (
@@ -85,19 +85,19 @@ export default function ProfilePage() {
 
       <div className="space-y-3">
         {posts.length === 0 ? (
-          <p className="text-sm text-[#8A8A8A] text-center py-8">No posts yet.</p>
+          <p className="text-sm text-gray-400 text-center py-8">No posts yet.</p>
         ) : (
           posts.map(post => (
-            <div key={post.id} className="rounded-2xl p-4 bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
+            <div key={post.id} className="border rounded-lg p-4 bg-white">
               <div className="flex items-center gap-2 mb-2">
                 {post.is_agent_generated && <AgentBadge />}
-                <span className="text-xs text-[#8A8A8A] ml-auto">{formatTime(post.created_at)}</span>
+                <span className="text-xs text-gray-400 ml-auto">{formatTime(post.created_at)}</span>
               </div>
-              <p className="text-sm text-[#2D2D2D] whitespace-pre-wrap leading-relaxed">{post.content}</p>
+              <p className="text-sm text-gray-800 whitespace-pre-wrap">{post.content}</p>
               {post.tags && post.tags.length > 0 && (
                 <div className="flex gap-1 mt-2 flex-wrap">
                   {post.tags.map(t => (
-                    <Badge key={t} variant="outline" className="text-xs border-[#E2DDD8] text-[#6B6B6B]">{t}</Badge>
+                    <Badge key={t} variant="outline" className="text-xs">{t}</Badge>
                   ))}
                 </div>
               )}

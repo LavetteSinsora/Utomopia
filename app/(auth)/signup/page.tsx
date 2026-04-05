@@ -37,22 +37,22 @@ export default function SignupPage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-[#7BAEC7]">Utomopia</CardTitle>
-        <CardDescription className="text-[#8A8A8A]">Create your account</CardDescription>
+        <CardTitle className="text-2xl">Utomopia</CardTitle>
+        <CardDescription>Create your account</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input type="text" placeholder="Display name" value={displayName} onChange={e => setDisplayName(e.target.value)} required />
           <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
           <Input type="password" placeholder="Password (min 6 characters)" value={password} onChange={e => setPassword(e.target.value)} minLength={6} required />
-          {error && <p className="text-sm text-[#E05252]">{error}</p>}
+          {error && <p className="text-sm text-red-500">{error}</p>}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? 'Creating account...' : 'Create account'}
           </Button>
         </form>
-        <p className="mt-4 text-sm text-center text-[#8A8A8A]">
+        <p className="mt-4 text-sm text-center text-gray-500">
           Have an account?{' '}
-          <Link href="/login" className="text-[#7BAEC7] font-semibold underline">Sign in</Link>
+          <Link href="/login" className="text-gray-800 underline">Sign in</Link>
         </p>
       </CardContent>
     </Card>
